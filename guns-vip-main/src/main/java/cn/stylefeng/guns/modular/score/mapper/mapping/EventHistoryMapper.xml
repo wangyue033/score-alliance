@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.stylefeng.guns.modular.score.mapper.EventHistoryMapper">
+	
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.score.entity.EventHistory">
+		<id column="id" property="id"/>
+		<result column="item_id" property="itemId"/>
+		<result column="item_name" property="itemName"/>
+		<result column="user_id" property="userId"/>
+		<result column="pre_score" property="preScore"/>
+		<result column="opt_score" property="optScore"/>
+		<result column="suf_score" property="sufScore"/>
+		<result column="remark" property="remark"/>
+		<result column="state" property="state"/>
+		<result column="create_user" property="createUser"/>
+		<result column="create_time" property="createTime"/>
+	</resultMap>
+	
+	<!-- 通用查询结果列 -->
+	<sql id="Base_Column_List">
+        id AS "id", item_id AS "itemId", item_name AS "itemName", user_id AS "userId", pre_score AS "preScore", opt_score AS "optScore", suf_score AS "sufScore", remark AS "remark", state AS "state", create_user AS "createUser", create_time AS "createTime"
+    </sql>
+	
+	<sql id="fulle_Column_List">
+        teh.id AS "id", teh.item_id AS "itemId",teh.item_name AS "itemName", teh.user_id AS "userId", teh.pre_score AS "preScore", teh.opt_score AS "optScore", teh.suf_score AS "sufScore", teh.remark AS "remark", teh.state AS "state", teh.create_user AS "createUser", teh.create_time AS "createTime" ,su.name as "createUserName" , itu.name as "userName"
+    </sql>
+	
+	
+	<select id="customList" resultType="cn.stylefeng.guns.modular.score.model.result.EventHistoryResult"
+			parameterType="cn.stylefeng.guns.modular.score.model.params.EventHistoryParam">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_event_history where 1 = 1
+	</select>
+	
+	<select id="customMapList" resultType="map"
+			parameterType="cn.stylefeng.guns.modular.score.model.params.EventHistoryParam">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_event_history where 1 = 1
+	</select>
+	
+	<select id="customPageList" resultType="cn.stylefeng.guns.modular.score.model.result.EventHistoryResult"
+			parameterType="cn.stylefeng.guns.modular.score.model.params.EventHistoryParam">
+		select
+		<include refid="fulle_Column_List"/>
+		from tb_event_history teh
+		left join sys_user su on teh.create_user = su.user_id
+		left join sys_user itu on teh.user_id = itu.user_id
+		where 1 = 1
+		order by id desc
+	</select>
+	
+	<select id="customPageMapList" resultType="map"
+			parameterType="cn.stylefeng.guns.modular.score.model.params.EventHistoryParam">
+		select
+		<include refid="Base_Column_List"/>
+		from tb_event_history where 1 = 1
+	</select>
+
+</mapper>

@@ -1,0 +1,70 @@
+@layout("/common/_form.html",{js:["/assets/score/eventHistory/eventHistory_edit.js"]}){
+
+<form class="layui-form" id="eventHistoryForm" lay-filter="eventHistoryForm">
+    <div class="layui-fluid" style="padding-bottom: 75px;">
+        <div class="layui-card">
+            <div class="layui-card-header">基本信息</div>
+            <div class="layui-card-body">
+                <div class="layui-form-item layui-row">
+                    <input name="id" type="hidden"/>
+
+                    <div class="layui-inline layui-col-md12">
+                        <label class="layui-form-label">事件ID<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input id="itemId" name="itemId" placeholder="请输入事件ID" type="text" class="layui-input" lay-verify="required" required/>
+                        </div>
+                    </div>
+                    <div class="layui-inline layui-col-md12">
+                        <label class="layui-form-label">事件名称<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input id="itemName" name="itemName" placeholder="请输入事件名称" type="text" class="layui-input" lay-verify="required" required/>
+                        </div>
+                    </div>
+                    <div class="layui-inline layui-col-md12">
+                        <label class="layui-form-label">加分对象<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input id="userId" name="userId" placeholder="请输入加分对象" type="text" class="layui-input" lay-verify="required" required/>
+                        </div>
+                    </div>
+                    <div class="layui-inline layui-col-md12">
+                        <label class="layui-form-label">历史积分<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input id="preScore" name="preScore" placeholder="请输入历史积分" type="text" class="layui-input" lay-verify="required" required/>
+                        </div>
+                    </div>
+                    <div class="layui-inline layui-col-md12">
+                        <label class="layui-form-label">本次操作积分<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input id="optScore" name="optScore" placeholder="请输入本次操作积分" type="text" class="layui-input" lay-verify="required" required/>
+                        </div>
+                    </div>
+                    <div class="layui-inline layui-col-md12">
+                        <label class="layui-form-label">结果积分<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input id="sufScore" name="sufScore" placeholder="请输入结果积分" type="text" class="layui-input" lay-verify="required" required/>
+                        </div>
+                    </div>
+                    <div class="layui-inline layui-col-md12">
+                        <label class="layui-form-label">说明<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input id="remark" name="remark" placeholder="请输入说明" type="text" class="layui-input" lay-verify="required" required/>
+                        </div>
+                    </div>
+                    <div class="layui-inline layui-col-md12">
+                        <label class="layui-form-label">状态(1:有效，0：无效)<span style="color: red;">*</span></label>
+                        <div class="layui-input-block">
+                            <input id="state" name="state" placeholder="请输入状态(1:有效，0：无效)" type="text" class="layui-input" lay-verify="required" required/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group-bottom text-center">
+        <button class="layui-btn" lay-filter="btnSubmit" lay-submit>&emsp;提交&emsp;</button>
+        <button type="reset" class="layui-btn layui-btn-primary" ew-event="closeDialog">&emsp;取消&emsp;</button>
+    </div>
+
+</form>
+
+@}
